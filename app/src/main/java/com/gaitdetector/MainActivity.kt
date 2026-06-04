@@ -18,37 +18,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
-
+        prefs     = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
         tvStatus  = findViewById(R.id.tvEnrollmentStatus)
         btnEnroll = findViewById(R.id.btnEnroll)
         btnDetect = findViewById(R.id.btnDetect)
 
-        btnEnroll.setOnClickListener {
-            startActivity(Intent(this, EnrollmentActivity::class.java))
-        }
-
-        btnDetect.setOnClickListener {
-            startActivity(Intent(this, DetectionActivity::class.java))
-        }
+        btnEnroll.setOnClickListener { startActivity(Intent(this, EnrollmentActivity::class.java)) }
+        btnDetect.setOnClickListener { startActivity(Intent(this, DetectionActivity::class.java)) }
     }
 
     override fun onResume() {
         super.onResume()
-        val enrolled = prefs.getBoolean(KEY_ENROLLED, false)
+        val enrolled  = prefs.getBoolean(KEY_ENROLLED,  false)
         val threshold = prefs.getFloat(KEY_THRESHOLD, -1f)
         if (enrolled && threshold > 0) {
-            tvStatus.text = "Enrolled ✓\nPersonal threshold: ${"%.4f".format(threshold)}"
+            tvStatus.text = "Enrolled ✓\nPersonal L2 threshold: ${"%.4f".format(threshold)}"
             btnDetect.isEnabled = true
         } else {
-            tvStatus.text = "Not yet enrolled.\nComplete an enrolment session to personalise detection."
+            tvStatus.text = "Not yet enrolled.\nComplete an enrolment session to build your gait template."
             btnDetect.isEnabled = false
         }
     }
 
     companion object {
-        const val PREFS_NAME     = "gait_prefs"
-        const val KEY_ENROLLED   = "enrolled"
-        const val KEY_THRESHOLD  = "threshold"
+        const val PREFS_NAME    = "gait_prefs"
+        const val KEY_ENROLLED  = "enrolled"
+        const val KEY_THRESHOLD = "threshold"
+        const val KEY_TEMPLATE  = "template"   // JSON array of embedding floats
     }
 }
