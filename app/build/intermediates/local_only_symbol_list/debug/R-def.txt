@@ -1,0 +1,25 @@
+R_DEF: Internal format may change without notice
+local
+color background
+color colorAccent
+color colorAnomaly
+color colorNormal
+color colorPrimary
+id btnAction
+id btnDetect
+id btnEnroll
+id progressBar
+id progressScore
+id scoreHistoryView
+id spinnerGaitType
+id tvEnrollmentStatus
+id tvPhase
+id tvScore
+id tvStats
+id tvStatus
+id tvThreshold
+layout activity_detection
+layout activity_enrollment
+layout activity_main
+string app_name
+style Theme.GaitDetector
