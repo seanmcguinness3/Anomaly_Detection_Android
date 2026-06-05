@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.gaitdetector.presenters.debug.DebugScreen
+import com.gaitdetector.presenters.enrollment.EnrollmentScreen
 import com.gaitdetector.presenters.healthstats.HealthStatScreen
 import com.gaitdetector.presenters.main.MainScreen
 import com.gaitdetector.presenters.settings.SettingsScreen
@@ -24,8 +25,19 @@ fun AppNavGraph(
         }
         composable(Screen.Settings.route) {
             SettingsScreen(
-                modifier    = modifier,
-                onDebugClick = { navHostController.navigate(Screen.Debug.route) }
+                modifier      = modifier,
+                onEnrollClick = { navHostController.navigate(Screen.Enroll.route) },
+                onDebugClick  = { navHostController.navigate(Screen.Debug.route) },
+            )
+        }
+        composable(Screen.Enroll.route) {
+            EnrollmentScreen(
+                modifier = modifier,
+                onDone   = {
+                    navHostController.navigate(Screen.Settings.route) {
+                        popUpTo(Screen.Settings.route) { inclusive = true }
+                    }
+                },
             )
         }
         composable(Screen.Debug.route) {

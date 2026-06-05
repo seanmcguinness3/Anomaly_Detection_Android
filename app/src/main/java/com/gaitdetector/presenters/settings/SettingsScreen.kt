@@ -10,6 +10,7 @@ import com.gaitdetector.presenters.settings.components.SettingsScreenContent
 @Composable
 fun SettingsScreen(
     modifier: Modifier = Modifier,
+    onEnrollClick: () -> Unit = {},
     onDebugClick: () -> Unit = {},
 ) {
     Surface(
@@ -17,6 +18,9 @@ fun SettingsScreen(
         color        = Color.Black,
         contentColor = Color.Black,
     ) {
-        SettingsScreenContent(onDebugClick = onDebugClick)
+        SettingsScreenContent(
+            onEnrollClick = onEnrollClick,
+            onDebugClick  = onDebugClick,
+        )
     }
 }
