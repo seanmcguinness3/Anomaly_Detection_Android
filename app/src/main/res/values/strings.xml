@@ -1,4 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Gait Anomaly Detector</string>
+
+    <!-- ── DARPA / WEAR UI strings ─────────────────────────────────────────── -->
+    <string name="home_title_text">Home</string>
+    <string name="health_stats_title_text">Health Stats</string>
+    <string name="settings_title_text">Settings</string>
+    <string name="top_bar_title_text">WEAR</string>
+    <string name="app_logo_image_content_description_text">App logo</string>
+    <string name="text_field_placeholder_text">Value X</string>
+
+    <!-- Twenty Four Hour chart axis labels -->
+    <string name="hundred_text">100</string>
+    <string name="seventy_five_text">75</string>
+    <string name="fifty_text">50</string>
+    <string name="twenty_five_text">25</string>
+    <string name="zero_text">0</string>
+    <string name="time_text">%s%s</string>
+    <string name="am_text">AM</string>
+    <string name="pm_text">PM</string>
+    <string name="twelve_text">12</string>
+    <string name="four_text">4</string>
+    <string name="eight_text">8</string>
+
+    <!-- Main screen -->
+    <string name="current_readiness_text">Current Readiness</string>
+    <string name="zero_percentage_text">0%</string>
+    <string name="hundred_percentage_text">100%</string>
+    <string name="percentage_arrow_content_description_text">Percentage Arrow</string>
+    <string name="good_text">Good</string>
+    <string name="sedentary_text">Sedentary</string>
+    <string name="active_text">Active</string>
+    <string name="readiness_text">Readiness</string>
+    <string name="high_text">High</string>
+    <string name="low_text">Low</string>
+    <string name="energy_expenditure_text">Energy Expenditure</string>
+    <string name="ten_divide_eight_text">4/26</string>
+    <string name="nine_divide_eleven_text">3/30</string>
+    <string name="daily_readiness_text">Daily Readiness</string>
+    <string name="four_week_trend_text">4 Week Trend</string>
+    <string name="twenty_four_hour_trend_text">24 Hour Trend</string>
+
+    <!-- Health stats screen -->
+    <string name="user_health_data_entry_text">User Health Data Entry</string>
+    <string name="gender_text">Gender</string>
+    <string name="birthdate_text">Birthdate</string>
+    <string name="height_text">Height</string>
+    <string name="weight_text">Weight</string>
+    <string name="activity_level_text">Activity Level</string>
+    <string name="vo2_max_text">VO2max</string>
+    <string name="resting_bp_text">Resting BP</string>
+    <string name="measured_health_metrics_text">Measured Health Metrics</string>
+    <string name="resting_or_max_hr_text">Resting/Max HR</string>
+    <string name="fifty_five_text">55</string>
+    <string name="eighty_five_text">85</string>
+    <string name="bpm_text">185 BPM</string>
+    <string name="cardiovascular_health_text">Cardiovascular Health</string>
+    <string name="endurance_level_text">Endurance Level</string>
+
+    <!-- Settings screen -->
+    <string name="wearable_devices_text">Wearable Devices</string>
+    <string name="wrist_polar_verity_text">Wrist: Polar Verity</string>
+    <string name="ankle_polar_verity_text">Ankle: Polar Verity</string>
+    <string name="head_polar_verity_text">Head: Polar Verity</string>
+    <string name="chest_garmin_text">Chest: Garmin HRM</string>
+    <string name="connection_guide_text">Connection Guide</string>
+    <string name="secure_data_connection_text">Secure Data Connection</string>
+    <string name="version_text">Version/Build: 1.01 00000</string>
+    <string name="secure_policy_text">Secure Policy</string>
+    <string name="wrist_id_text">C929ED29</string>
+    <string name="ankle_id_text">C53D4C2D</string>
+    <string name="head_id_text">C19E1A21</string>
+    <string name="chest_id_text">CA98A82D</string>
+    <string name="data_connection_id_text">000000000000</string>
 </resources>

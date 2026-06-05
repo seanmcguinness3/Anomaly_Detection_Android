@@ -1,30 +1,98 @@
 [
     {
-        "merged": "com.gaitdetector.app-debug-31:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.gaitdetector.app-main-33:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.gaitdetector.app-debug-64:/drawable_ic_unselected_hammer.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/ic_unselected_hammer.xml"
     },
     {
-        "merged": "com.gaitdetector.app-debug-31:/layout_activity_detection.xml.flat",
-        "source": "com.gaitdetector.app-main-33:/layout/activity_detection.xml"
+        "merged": "com.gaitdetector.app-debug-64:/font_inter_24_regular.ttf.flat",
+        "source": "com.gaitdetector.app-main-66:/font/inter_24_regular.ttf"
     },
     {
-        "merged": "com.gaitdetector.app-debug-31:/layout_activity_enrollment.xml.flat",
-        "source": "com.gaitdetector.app-main-33:/layout/activity_enrollment.xml"
+        "merged": "com.gaitdetector.app-debug-64:/layout_activity_main.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/layout/activity_main.xml"
     },
     {
-        "merged": "com.gaitdetector.app-debug-31:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.gaitdetector.app-main-33:/drawable/ic_launcher_foreground.xml"
+        "merged": "com.gaitdetector.app-debug-64:/drawable_ic_polar_verity_sensor.png.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/ic_polar_verity_sensor.png"
     },
     {
-        "merged": "com.gaitdetector.app-debug-31:/layout_activity_main.xml.flat",
-        "source": "com.gaitdetector.app-main-33:/layout/activity_main.xml"
+        "merged": "com.gaitdetector.app-debug-64:/drawable_ic_selected_hammer.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/ic_selected_hammer.xml"
     },
     {
-        "merged": "com.gaitdetector.app-debug-31:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.gaitdetector.app-main-33:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.gaitdetector.app-debug-64:/drawable_app_logo.png.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/app_logo.png"
     },
     {
-        "merged": "com.gaitdetector.app-debug-31:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.gaitdetector.app-main-33:/drawable/ic_launcher_background.xml"
+        "merged": "com.gaitdetector.app-debug-64:/drawable_ic_selected_health_stat.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/ic_selected_health_stat.xml"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/drawable_messages.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/messages.xml"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/drawable_ic_fenix.png.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/ic_fenix.png"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/drawable_sync.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/sync.xml"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/drawable_ic_unselected_house.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/ic_unselected_house.xml"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/drawable_ic_unselected_health_stat.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/ic_unselected_health_stat.xml"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/drawable_foot.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/foot.xml"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/drawable_ic_selected_house.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/ic_selected_house.xml"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/font_inter_24_bold.ttf.flat",
+        "source": "com.gaitdetector.app-main-66:/font/inter_24_bold.ttf"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/layout_activity_enrollment.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/layout/activity_enrollment.xml"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/drawable_ic_chest_germin_hrm.png.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/ic_chest_germin_hrm.png"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/drawable_ic_secure_data_connection.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/ic_secure_data_connection.xml"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/drawable_ic_run.png.flat",
+        "source": "com.gaitdetector.app-main-66:/drawable/ic_run.png"
+    },
+    {
+        "merged": "com.gaitdetector.app-debug-64:/layout_activity_detection.xml.flat",
+        "source": "com.gaitdetector.app-main-66:/layout/activity_detection.xml"
     }
 ]

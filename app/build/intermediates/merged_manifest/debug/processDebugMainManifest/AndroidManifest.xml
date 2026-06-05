@@ -36,6 +36,9 @@
         </activity>
         <activity android:name="com.gaitdetector.EnrollmentActivity" />
         <activity android:name="com.gaitdetector.DetectionActivity" />
+        <activity
+            android:name="androidx.compose.ui.tooling.PreviewActivity"
+            android:exported="true" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

@@ -3,35 +3,31 @@ package com.gaitdetector
 import kotlin.math.sqrt
 
 /**
- * Converts a 128-sample accelerometer window into a 96-element FFT feature vector.
+ * Converts a raw 128-sample accelerometer window into a 384-element feature vector.
  *
  * Processing pipeline (identical to process_window() in generate_gait_data.py):
  *
  *   For each of 3 axes (x, y, z):
- *     1. Z-score normalise the axis window          → scale invariance
- *     2. FFT magnitude spectrum  |FFT(x_norm)|      → phase invariance
- *     3. Resample spectrum so fundamental → K_REF   → frequency invariance
+ *     1. Z-score normalise the axis window independently
+ *        → removes DC offset and per-session amplitude bias
  *
- *   Concatenate 3 × N_OUT_BINS = 96 floats.
+ *   Concatenate 3 × WINDOW_SIZE = 384 floats:
+ *     [ z_x[0..127],  z_y[0..127],  z_z[0..127] ]
  *
- * Constants mirror generate_gait_data.py:
- *   FUND_LO / FUND_HI  : bin range searched for the fundamental peak
- *   K_REF              : target bin for the aligned fundamental (~1.95 Hz)
- *   N_OUT_BINS         : number of tuned-spectrum bins kept per axis
+ * The autoencoder learns directly from the normalised time-domain waveform.
+ * No FFT is applied — frequency and phase information is preserved in the
+ * raw signal and the decoder learns to reconstruct the user's specific
+ * waveform shape during personalisation.
  */
 object GaitFeatureExtractor {
 
-    const val NUM_FEATURES = 96   // 3 axes × 32 bins
-
-    private const val FUND_LO    = 2
-    private const val FUND_HI    = 20
-    private const val K_REF      = 5
-    private const val N_OUT_BINS = 32
+    /** 128 samples × 3 axes. Must match generate_gait_data.NUM_FEATURES. */
+    const val NUM_FEATURES = GaitSimulator.WINDOW_SIZE * 3   // 384
 
     /**
-     * @param window Flat FloatArray of size WINDOW_SIZE*3,
-     *               layout: [s0_x, s0_y, s0_z,  s1_x, s1_y, s1_z, …]
-     * @return FloatArray of size NUM_FEATURES (96)
+     * @param window Flat FloatArray of size WINDOW_SIZE × 3,
+     *               interleaved layout: [s0_x, s0_y, s0_z,  s1_x, s1_y, s1_z, …]
+     * @return FloatArray of size NUM_FEATURES (384) — Z-score normalised per axis
      */
     fun extract(window: FloatArray): FloatArray {
         require(window.size == GaitSimulator.WINDOW_SIZE * 3) {
@@ -39,43 +35,20 @@ object GaitFeatureExtractor {
         }
         val features = FloatArray(NUM_FEATURES)
         for (axis in 0..2) {
-            val col   = FloatArray(GaitSimulator.WINDOW_SIZE) { i -> window[i * 3 + axis] }
-            val tuned = processAxis(col)
-            val base  = axis * N_OUT_BINS
-            tuned.copyInto(features, destinationOffset = base)
+            // De-interleave one axis
+            val col = FloatArray(GaitSimulator.WINDOW_SIZE) { i -> window[i * 3 + axis] }
+
+            // Z-score normalise
+            val mean = col.mean()
+            val std  = col.std(mean).coerceAtLeast(1e-8f)
+
+            // Write normalised samples into the output block for this axis
+            val base = axis * GaitSimulator.WINDOW_SIZE
+            for (i in col.indices) {
+                features[base + i] = (col[i] - mean) / std
+            }
         }
         return features
-    }
-
-    // ── Per-axis pipeline ─────────────────────────────────────────────────────
-
-    private fun processAxis(col: FloatArray): FloatArray {
-        // 1. Z-score normalise
-        val mean = col.mean()
-        val std  = col.std(mean).coerceAtLeast(1e-8f)
-        val norm = FloatArray(col.size) { (col[it] - mean) / std }
-
-        // 2. FFT magnitude spectrum  → bins 0 .. WINDOW_SIZE/2  (65 values)
-        val mag = FFT.magnitudeSpectrum(norm)
-
-        // 3. Find fundamental: peak bin in [FUND_LO, FUND_HI]
-        var kFund = FUND_LO
-        for (k in (FUND_LO + 1)..FUND_HI) {
-            if (k < mag.size && mag[k] > mag[kFund]) kFund = k
-        }
-
-        // 4. Resample: output[k] ← linear interp of mag at position k / scale
-        //    scale = K_REF / kFund  maps  kFund → K_REF  (and all harmonics)
-        val scale = K_REF.toFloat() / kFund.toFloat()
-        return FloatArray(N_OUT_BINS) { k ->
-            val src  = k / scale
-            val lo   = src.toInt()
-            val hi   = lo + 1
-            val frac = src - lo
-            val loV  = if (lo < mag.size) mag[lo] else 0f
-            val hiV  = if (hi < mag.size) mag[hi] else 0f
-            loV * (1f - frac) + hiV * frac
-        }
     }
 
     // ── Helpers ───────────────────────────────────────────────────────────────
@@ -85,7 +58,7 @@ object GaitFeatureExtractor {
     private fun FloatArray.std(mean: Float): Float {
         if (size < 2) return 0f
         var acc = 0.0
-        for (v in this) acc += (v - mean).toDouble() * (v - mean).toDouble()
+        for (v in this) { val d = v - mean; acc += d * d }
         return sqrt((acc / size).toFloat())
     }
 }

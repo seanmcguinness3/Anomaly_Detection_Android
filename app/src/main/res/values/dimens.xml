@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="twenty_four_hour_chart_big_circle_size">12dp</dimen>
+    <dimen name="twenty_four_hour_chart_small_circle_size">4dp</dimen>
+    <dimen name="box_horizontal_padding">4dp</dimen>
+    <dimen name="box_top_padding">12dp</dimen>
+    <dimen name="twenty_four_hour_chart_horizontal_padding">16dp</dimen>
+    <dimen name="energy_chart_row_vertical_padding">8dp</dimen>
+    <dimen name="box_vertical_arrangement_spacing">8dp</dimen>
+    <dimen name="twenty_four_hour_chart_height">150dp</dimen>
+    <dimen name="four_week_trend_chart_height">182dp</dimen>
+    <dimen name="four_week_trend_chart_vertical_padding">8dp</dimen>
+    <dimen name="four_week_trend_chart_horizontal_padding">12dp</dimen>
+    <dimen name="readiness_plot_top_padding">50dp</dimen>
+</resources>

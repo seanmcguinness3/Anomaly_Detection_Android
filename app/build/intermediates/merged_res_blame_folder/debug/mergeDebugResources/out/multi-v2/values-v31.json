@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.gaitdetector.app-mergeDebugResources-29:/values-v31/values-v31.xml",
+            "outputFile": "com.gaitdetector.app-mergeDebugResources-62:/values-v31/values-v31.xml",
             "map": [
                 {
                     "source": "C:\\Users\\seanz\\.gradle\\caches\\8.9\\transforms\\e752ade9f7563406d9223568b880cd0c\\transformed\\material-1.11.0\\res\\values-v31\\values-v31.xml",
