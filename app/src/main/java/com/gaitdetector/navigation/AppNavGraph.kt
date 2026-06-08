@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.gaitdetector.DetectionViewModel
 import com.gaitdetector.presenters.debug.DebugScreen
 import com.gaitdetector.presenters.enrollment.EnrollmentScreen
 import com.gaitdetector.presenters.healthstats.HealthStatScreen
@@ -13,8 +14,9 @@ import com.gaitdetector.presenters.settings.SettingsScreen
 
 @Composable
 fun AppNavGraph(
-    navHostController: NavHostController,
-    modifier: Modifier = Modifier,
+    navHostController:  NavHostController,
+    detectionViewModel: DetectionViewModel,
+    modifier:           Modifier = Modifier,
 ) {
     NavHost(navController = navHostController, startDestination = Screen.Main.route) {
         composable(Screen.Main.route) {
@@ -42,8 +44,9 @@ fun AppNavGraph(
         }
         composable(Screen.Debug.route) {
             DebugScreen(
+                viewModel = detectionViewModel,
                 modifier  = modifier,
-                onBack    = { navHostController.popBackStack() }
+                onBack    = { navHostController.popBackStack() },
             )
         }
     }

@@ -12,9 +12,11 @@ import androidx.appcompat.app.AppCompatActivity
  * "Debug Screen" to navigate — within the same Activity — to [DebugScreen],
  * which hosts the gait-anomaly enrolment and detection controls.
  *
- * The enrolment flow is handled entirely within Compose navigation via
- * [EnrollmentScreen] (Screen.Enroll route). [DetectionActivity] is still a
- * separate XML Activity launched via startActivity() from the Debug screen.
+ * [DetectionViewModel] is created here (activity-scoped) so the anomaly-detection
+ * pipeline starts running immediately at launch, before the user opens DebugScreen.
+ *
+ * The enrolment flow uses [EnrollmentScreen] (Screen.Enroll route). The legacy
+ * [DetectionActivity] is retained in the codebase but is no longer launched.
  */
 class MainActivity : AppCompatActivity() {
 
